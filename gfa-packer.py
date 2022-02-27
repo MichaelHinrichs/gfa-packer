@@ -12,8 +12,8 @@ def getString(file):
     return result
 
 if len(sys.argv) <= 2 or len(sys.argv) > 3:
-    print 'Usage:'
-    print 'gfa-packer.py [folderToCompress] [gfa to copy hashes from]'
+    print ('Usage:')
+    print ('gfa-packer.py [folderToCompress] [gfa to copy hashes from]')
     quit()
 
 filenames = []
@@ -71,7 +71,7 @@ with open(sys.argv[1].rstrip('/').rstrip('\\')+".gfa",'wb') as f:
             f.write(hashes[filenames[i][0]])
         else:
             f.write(int32(0xFFFFFFFF))
-            print 'No hash found for file '+filenames[i][0]
+            print ('No hash found for file '+filenames[i][0])
         f.write(int32(currentOffset))
         currentOffset += len(filenames[i][0]) + 1
         f.write(int32(lengths[i]))
